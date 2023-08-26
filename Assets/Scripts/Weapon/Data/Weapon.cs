@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName ="Data/Weapon")]
+[CreateAssetMenu(menuName ="ScpObjects/Weapon")]
 public class Weapon : ScriptableObject
 {
     public string weaponName;

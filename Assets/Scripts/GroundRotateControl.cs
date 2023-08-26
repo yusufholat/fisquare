@@ -38,9 +38,8 @@ public class GroundRotateControl : MonoBehaviour
             else targetRotation = initialRotation * Quaternion.Euler(0, 0, -180);
             isRotating = true;
         }
-
         if(isRotating){
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationCurve.Evaluate(rotationSpeed * Time.deltaTime));
             if (Quaternion.Angle(transform.rotation, targetRotation) < 0.1f)
             {
                 transform.rotation = targetRotation;
@@ -48,6 +47,8 @@ public class GroundRotateControl : MonoBehaviour
                 isRotating = false;
             }
         }
+    }
+    private void FixedUpdate(){
 
     }
 }
