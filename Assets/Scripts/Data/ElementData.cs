@@ -1,8 +1,7 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName ="ScpObjects/ElementType")]
-public class ElementType : ScriptableObject {
+public class ElementData : ScriptableObject {
     public Type type;
     public Color color;
 }

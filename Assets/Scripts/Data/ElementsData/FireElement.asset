@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: EarthElement
+  m_Script: {fileID: 11500000, guid: 88c2c08140dca184a910985005a5fe24, type: 3}
+  m_Name: FireElement
   m_EditorClassIdentifier: Assembly-CSharp::ElementType
-  type: 4
-  color: {r: 0.18039216, g: 0.52156866, b: 0.43137255, a: 1}
+  type: 1
+  color: {r: 0.65882355, g: 0.16078432, b: 0.19215687, a: 1}

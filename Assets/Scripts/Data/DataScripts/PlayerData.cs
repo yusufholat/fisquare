@@ -4,5 +4,6 @@ using UnityEngine;
 public class PlayerData : ScriptableObject
 {
     public float hp;
-    public ElementType currentElement;
+    public ElementData element;
+    public Weapon weapon;
 }

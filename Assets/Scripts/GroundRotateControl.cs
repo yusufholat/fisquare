@@ -48,8 +48,5 @@ public class GroundRotateControl : MonoBehaviour
             }
         }
     }
-    private void FixedUpdate(){
-
-    }
 }
  

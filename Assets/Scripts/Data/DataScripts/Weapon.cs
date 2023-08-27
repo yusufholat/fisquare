@@ -5,5 +5,4 @@ public class Weapon : ScriptableObject
 {
     public string weaponName;
     public float damage;
-    public float durability;
 }

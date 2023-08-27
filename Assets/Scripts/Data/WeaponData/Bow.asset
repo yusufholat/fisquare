@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: NoneElement
-  m_EditorClassIdentifier: Assembly-CSharp::ElementType
-  type: 0
-  color: {r: 0.827451, g: 0.827451, b: 0.827451, a: 1}
+  m_Script: {fileID: 11500000, guid: 4e3855fef52f0b2408cf411e07ff003d, type: 3}
+  m_Name: Bow
+  m_EditorClassIdentifier: 
+  weaponName: bow
+  damage: 20
