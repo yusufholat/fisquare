@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: bow
   damage: 20
+  sprite: {fileID: 21300000, guid: a28e1055bab5bc3458abe7bea429a502, type: 3}

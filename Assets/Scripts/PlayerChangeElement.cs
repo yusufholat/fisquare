@@ -8,10 +8,6 @@ public class PlayerChangeElement : MonoBehaviour
     [SerializeField] PlayerData player;
 
     [SerializeField] ElementData[] elements; 
-    void Start()
-    {
-        
-    }
 
     void Update()
     {
@@ -29,7 +25,6 @@ public class PlayerChangeElement : MonoBehaviour
                     player.element = so;
                     return;
                 }
-
             }
             
         }

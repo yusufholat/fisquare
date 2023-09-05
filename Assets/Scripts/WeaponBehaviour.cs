@@ -5,10 +5,9 @@ using UnityEngine;
 public class WeaponBehaviour : MonoBehaviour
 {
     [SerializeField] Weapon weapon;
-    
+
     void Start()
     {
-        
     }
 
     // Update is called once per frame

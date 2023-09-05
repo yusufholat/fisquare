@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: sword
   damage: 10
-  durability: 100
+  sprite: {fileID: 21300000, guid: 3ae10ed287e0af045a8c04bd6ba9351e, type: 3}
