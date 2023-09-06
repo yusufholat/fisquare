@@ -1,22 +1,44 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
+using System;
 using UnityEngine;
 
 public class PlayerAimWeapon : MonoBehaviour
 {
-    Vector2 aimDirection;
+  
+    // public event EventHandler<OnMouseShootEventArgs> OnMouseShoot;
+    
+    // public class OnMouseShootEventArgs : EventArgs{
+    //     public Vector3 shootPosition;
+    //     public Vector3 aimDirection;
+    // }
 
-    void Start()
-    {
-        
-    }
+    
+    [SerializeField] private Transform bulletSpawnPoint;
+    [SerializeField] private GameObject arrowPrefab;
 
-    // Update is called once per frame
+    private Vector3 mousePosition;
+    private Vector3 aimDirection;
+    private float rotationAngle;
+
     void Update()
     {
-        aimDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        float angle = Mathf.Atan2(aimDirection.y,aimDirection.x) * Mathf.Rad2Deg;
-        transform.eulerAngles = new Vector3(0, 0, angle);
+        HandleAiming();
+        HandleShooting();
+    }
+
+    void HandleAiming(){
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        aimDirection =  (mousePosition - transform.position).normalized;
+        rotationAngle = Mathf.Atan2(aimDirection.y,aimDirection.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, rotationAngle);
+    }
+
+    void HandleShooting(){
+        if(Input.GetMouseButtonDown(0)){
+            // OnMouseShoot?.Invoke(this, new OnMouseShootEventArgs{
+            //     shootPosition = mousePosition,
+            //     aimDirection = aimDirection
+            // });
+            Instantiate(arrowPrefab, bulletSpawnPoint.position, Quaternion.Euler(0,0, rotationAngle));
+        }
     }
 }
