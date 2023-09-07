@@ -1269,8 +1269,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 415ca0f0086d2a54eadcf08d688b7f8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpawnPoint: {fileID: 0}
-  arrowPrefab: {fileID: 0}
+  bulletSpawnPoint: {fileID: 1206321773}
+  arrowPrefab: {fileID: 7702395176231483315, guid: f742ca9ebfbcc0b4fb50232f3607a250, type: 3}
 --- !u!1 &1704276527
 GameObject:
   m_ObjectHideFlags: 0
