@@ -1,11 +1,9 @@
-using System;
 using UnityEngine;
 
 public class PlayerAimWeapon : MonoBehaviour
 {
-    
     [SerializeField] private Transform bulletSpawnPoint;
-    [SerializeField] private GameObject arrowPrefab;
+    [SerializeField] private Player mainPlayer;
 
     private Vector3 mousePosition;
     private Vector3 aimDirection;
@@ -26,7 +24,7 @@ public class PlayerAimWeapon : MonoBehaviour
 
     void HandleShooting(){
         if(Input.GetMouseButtonDown(0)){
-            Instantiate(arrowPrefab, bulletSpawnPoint.position, Quaternion.Euler(0,0, rotationAngle));
+            Instantiate(mainPlayer.weapon.pfBullet, bulletSpawnPoint.position, Quaternion.Euler(0,0, rotationAngle));
         }
     }
 }

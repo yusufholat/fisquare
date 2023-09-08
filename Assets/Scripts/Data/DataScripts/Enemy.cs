@@ -1,11 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName ="ScpObjects/Enemy")]
-public class Enemy : ScriptableObject
+public class Enemy
 {
-    public float hp;
-    public float speed;
-    public ElementData element;
+    public float speed {get; }
+    public ElementData element {get; }
+
+    public Enemy(ElementGroup _allElements, float _speed){
+        speed = _speed;
+        element = (ElementData)_allElements.elements.GetValue
+            (Random.Range(0, _allElements.elements.Length));
+    }
 }

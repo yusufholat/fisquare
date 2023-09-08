@@ -3,7 +3,8 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] private ElementGroup allElements;
-    [SerializeField] private Enemy enemy;
+    public Enemy enemy;
+    [SerializeField] private float enemySpeed;
 
     private SpriteRenderer enemySprite;
     private Vector2 randomDirection;
@@ -11,21 +12,21 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private LayerMask hitLayers;
     [SerializeField] private float enemyRadius;
     private Collider2D hitColl;
-    private bool canMove = true;
 
     void Start()
     {
         enemySprite = GetComponent<SpriteRenderer>();
-        enemy.element = (ElementData)allElements.elements.GetValue
-            (Random.Range(0, allElements.elements.Length));
+        enemy = new Enemy(allElements, enemySpeed);
         enemySprite.color = enemy.element.color;
         randomDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 0)).normalized;
     }
     
     void FixedUpdate(){
         hitColl = Physics2D.OverlapCircle(transform.position, enemyRadius, hitLayers);
-        if(hitColl != null) canMove = false;
-        if(canMove) transform.Translate(randomDirection * enemy.speed * Time.deltaTime);
+        if(hitColl != null){
+            Destroy(gameObject);
+        }
+        transform.Translate(randomDirection * enemy.speed * Time.deltaTime);
     }
 
 

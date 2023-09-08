@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: MainPlayer
   m_EditorClassIdentifier: 
   hp: 100
-  element: {fileID: 11400000, guid: d126a507200973c42b2fb407d0bce5cb, type: 2}
-  weapon: {fileID: 11400000, guid: 9a003ff63b0528149bba3f334dc73c92, type: 2}
+  weapon: {fileID: 11400000, guid: 2315d0a9e211b854994160dc9d204561, type: 2}
+  element: {fileID: 11400000, guid: 074a9628ae00fe34bb196e3f24f2b716, type: 2}

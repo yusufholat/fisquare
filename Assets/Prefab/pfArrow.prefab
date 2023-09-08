@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 9117487657778981627}
   - component: {fileID: 768527942668447262}
   - component: {fileID: 4762564291176723612}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: pfArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,9 +156,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad57742717f3cdd4a81526382cb355cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrowSpeed: 7.81
+  mainPlayer: {fileID: 11400000, guid: 11f335b6627d4554da18a35fceaed07a, type: 2}
+  arrowSpeed: 14
+  arrowRadius: 0.26
+  frontPoint: {fileID: 5226901519490818987}
   hitLayers:
     serializedVersion: 2
-    m_Bits: 64
-  frontPoint: {fileID: 5226901519490818987}
-  arrowRadius: 0.26
+    m_Bits: 65
+  destroyEffect: {fileID: 4937240743920572447, guid: 1ff5077dc4a26cd48af6d65b85220499, type: 3}
