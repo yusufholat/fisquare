@@ -3,14 +3,6 @@ using UnityEngine;
 
 public class PlayerAimWeapon : MonoBehaviour
 {
-  
-    // public event EventHandler<OnMouseShootEventArgs> OnMouseShoot;
-    
-    // public class OnMouseShootEventArgs : EventArgs{
-    //     public Vector3 shootPosition;
-    //     public Vector3 aimDirection;
-    // }
-
     
     [SerializeField] private Transform bulletSpawnPoint;
     [SerializeField] private GameObject arrowPrefab;
@@ -34,10 +26,6 @@ public class PlayerAimWeapon : MonoBehaviour
 
     void HandleShooting(){
         if(Input.GetMouseButtonDown(0)){
-            // OnMouseShoot?.Invoke(this, new OnMouseShootEventArgs{
-            //     shootPosition = mousePosition,
-            //     aimDirection = aimDirection
-            // });
             Instantiate(arrowPrefab, bulletSpawnPoint.position, Quaternion.Euler(0,0, rotationAngle));
         }
     }

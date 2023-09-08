@@ -8,8 +8,8 @@ public class ArrowController : MonoBehaviour
 {
     [SerializeField] private float arrowSpeed;
   
-    [SerializeField] private LayerMask hitLayers;
     [SerializeField] private Transform frontPoint;
+    [SerializeField] private LayerMask hitLayers;
     [SerializeField] private float arrowRadius;
 
     private Collider2D hitColl;

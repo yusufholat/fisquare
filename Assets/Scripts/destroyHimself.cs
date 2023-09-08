@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class destroyHimself : MonoBehaviour
+public class DestroyHimself : MonoBehaviour
 {
     [SerializeField] private float destroyDelay = 1.0f;
 

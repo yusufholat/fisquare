@@ -5,9 +5,9 @@ using UnityEngine;
 public class PlayerChangeElement : MonoBehaviour
 {
     [SerializeField] SpriteRenderer playerSpriteColor;
-    [SerializeField] PlayerData player;
+    [SerializeField] Player player;
 
-    [SerializeField] ElementData[] elements; 
+    [SerializeField] ElementGroup elements; 
 
     void Update()
     {
@@ -20,7 +20,7 @@ public class PlayerChangeElement : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             Color temp = collision.gameObject.GetComponent<SpriteRenderer>().color;
-            foreach(ElementData so in elements){
+            foreach(ElementData so in elements.elements){
                 if(so.color == temp){
                     player.element = so;
                     return;

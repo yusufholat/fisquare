@@ -157,9 +157,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrowSpeed: 7.81
-  groundLayer:
+  hitLayers:
     serializedVersion: 2
     m_Bits: 64
-  arrowRadius: 0.26
-  backPoint: {fileID: 0}
   frontPoint: {fileID: 5226901519490818987}
+  arrowRadius: 0.26
