@@ -39,14 +39,18 @@ public class GroundRotateControl : MonoBehaviour
             isRotating = true;
         }
         if(isRotating){
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationCurve.Evaluate(rotationSpeed * Time.deltaTime));
+            RotateGround();
+        }
+    }
+
+    private void RotateGround(){
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationCurve.Evaluate(rotationSpeed * Time.deltaTime));
             if (Quaternion.Angle(transform.rotation, targetRotation) < 0.1f)
             {
                 transform.rotation = targetRotation;
                 initialRotation = targetRotation;
                 isRotating = false;
             }
-        }
     }
 }
  

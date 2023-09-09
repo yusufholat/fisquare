@@ -1,9 +1,9 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName ="ScpObjects/Player")]
-public class PlayerData : ScriptableObject
+public class Player : ScriptableObject
 {
     public float hp;
-    public ElementData element;
     public Weapon weapon;
+    public ElementData element;
 }
