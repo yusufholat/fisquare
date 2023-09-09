@@ -1,20 +1,14 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Xml.Serialization;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ArrowController : MonoBehaviour
 {
-    
     [SerializeField] private Player mainPlayer;
 
     [SerializeField] private float arrowSpeed;
     [SerializeField] private float arrowRadius;
     [SerializeField] private Transform frontPoint;
     [SerializeField] private LayerMask hitLayers;
-    [SerializeField] private GameObject destroyEffect;
 
     private Collider2D hitColl;
 
@@ -22,6 +16,7 @@ public class ArrowController : MonoBehaviour
 
     void Start(){
         bullet = new Bullet(mainPlayer.element, arrowSpeed);
+        GetComponent<SpriteRenderer>().color = mainPlayer.element.color;
     }
 
     void FixedUpdate(){
@@ -31,17 +26,10 @@ public class ArrowController : MonoBehaviour
             Destroy(gameObject);
         }
         else if(hitColl != null && hitColl.CompareTag("Enemy")){
-            if(hitColl.gameObject.GetComponent<EnemyController>().enemy.element ==
-            bullet.bulletElement){
-                Instantiate(destroyEffect, transform.position, Quaternion.identity);
-                Destroy(hitColl.gameObject);
-            }
+            Destroy(gameObject);
+            EventManager.OnMatchCollision(bullet.bulletElement);
+            EventManager.OnEnemyScale(bullet.bulletElement);
         }
     }
     
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(frontPoint.position, arrowRadius);
-    }
 }

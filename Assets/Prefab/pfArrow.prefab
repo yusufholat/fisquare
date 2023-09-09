@@ -43,9 +43,9 @@ GameObject:
   - component: {fileID: 9117487657778981627}
   - component: {fileID: 768527942668447262}
   - component: {fileID: 4762564291176723612}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: pfArrow
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -163,4 +163,3 @@ MonoBehaviour:
   hitLayers:
     serializedVersion: 2
     m_Bits: 65
-  destroyEffect: {fileID: 4937240743920572447, guid: 1ff5077dc4a26cd48af6d65b85220499, type: 3}

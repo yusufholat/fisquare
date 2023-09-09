@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 public class PlayerAimWeapon : MonoBehaviour
 {
     [SerializeField] private Transform bulletSpawnPoint;
