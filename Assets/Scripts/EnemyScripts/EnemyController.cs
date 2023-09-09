@@ -38,18 +38,19 @@ public class EnemyController : MonoBehaviour
 
     }
 
-    private void CheckElement(ElementData data)
+    private void CheckElement(ElementData data, Vector3 tform)
     {
-        if(data.type == enemy.element.type){
+        if(data.type == enemy.element.type && tform == transform.position){
             Destroy(gameObject);
             Instantiate(destroyEffect, transform.position, Quaternion.identity);
         }
     }
     
-    private void CheckEnemyScale(ElementData data)
+    private void CheckEnemyScale(ElementData data, Vector3 tform)
     {
-        if(data.type != enemy.element.type){
-            transform.localScale = transform.localScale * scaleMultiplier;
+        if(data.type != enemy.element.type && tform == transform.position){
+            transform.localScale *= scaleMultiplier;
+            enemyRadius *= scaleMultiplier;
         }
     }
 
