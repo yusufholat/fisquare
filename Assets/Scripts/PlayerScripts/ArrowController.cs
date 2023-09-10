@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class ArrowController : MonoBehaviour
@@ -27,8 +26,7 @@ public class ArrowController : MonoBehaviour
         }
         else if(hitColl != null && hitColl.CompareTag("Enemy")){
             Destroy(gameObject);
-            EventManager.OnMatchCollision(bullet.bulletElement, hitColl.gameObject.transform.position);
-            EventManager.OnEnemyScale(bullet.bulletElement, hitColl.gameObject.transform.position);
+            EventManager.MatchColorAndCollision(bullet.bulletElement, hitColl.gameObject.transform.position);
         }
     }
     

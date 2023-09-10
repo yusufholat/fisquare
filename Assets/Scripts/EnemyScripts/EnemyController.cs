@@ -1,4 +1,4 @@
-using Unity.VisualScripting;
+using System;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -17,15 +17,16 @@ public class EnemyController : MonoBehaviour
     
     [SerializeField] private GameObject destroyEffect;
 
+    public static event Action OnScoreUpdate;
+
     void Start()
     {
         enemySprite = GetComponent<SpriteRenderer>();
         enemy = new Enemy(allElements, enemySpeed);
         enemySprite.color = enemy.element.color;
-        randomDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 0)).normalized;
+        randomDirection = new Vector2(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 0)).normalized;
         
-        EventManager.MatchElementEvent += CheckElement;
-        EventManager.EnemyScale += CheckEnemyScale;
+        EventManager.MatchElementEvent += CompareElements;
     }
     
     void FixedUpdate(){
@@ -34,29 +35,27 @@ public class EnemyController : MonoBehaviour
             Destroy(gameObject);
         }
         transform.Translate(randomDirection * enemy.speed * Time.deltaTime);
-        
-
     }
 
-    private void CheckElement(ElementData data, Vector3 tform)
+    private void CompareElements(ElementData data, Vector3 tform)
     {
-        if(data.type == enemy.element.type && tform == transform.position){
-            Destroy(gameObject);
+        if(tform != transform.position) return; //check the true arrow-enemy match
+
+        if(data.type == enemy.element.type){
             Instantiate(destroyEffect, transform.position, Quaternion.identity);
-            UIManager.Instance.ScoreUpdate();
+            Destroy(gameObject);
+            OnScoreUpdate?.Invoke();
         }
+        else EnemyScale();
     }
     
-    private void CheckEnemyScale(ElementData data, Vector3 tform)
+    private void EnemyScale()
     {
-        if(data.type != enemy.element.type && tform == transform.position){
-            transform.localScale *= scaleMultiplier;
-            enemyRadius *= scaleMultiplier;
-        }
+        transform.localScale *= scaleMultiplier;
+        enemyRadius *= scaleMultiplier;
     }
 
     private void OnDestroy(){
-        EventManager.MatchElementEvent -= CheckElement;
-        EventManager.EnemyScale -= CheckEnemyScale;
+        EventManager.MatchElementEvent -= CompareElements;
     }
 }
