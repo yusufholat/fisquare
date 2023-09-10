@@ -43,6 +43,7 @@ public class EnemyController : MonoBehaviour
         if(data.type == enemy.element.type && tform == transform.position){
             Destroy(gameObject);
             Instantiate(destroyEffect, transform.position, Quaternion.identity);
+            UIManager.Instance.ScoreUpdate();
         }
     }
     
