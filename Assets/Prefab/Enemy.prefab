@@ -119,6 +119,6 @@ MonoBehaviour:
   scaleMultiplier: 1.2
   hitGroundLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 576
   enemyRadius: 0.5
   destroyEffect: {fileID: 4937240743920572447, guid: 1ff5077dc4a26cd48af6d65b85220499, type: 3}

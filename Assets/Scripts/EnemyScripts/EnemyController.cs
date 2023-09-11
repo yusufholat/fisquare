@@ -17,7 +17,6 @@ public class EnemyController : MonoBehaviour
     
     [SerializeField] private GameObject destroyEffect;
 
-    public static event Action OnScoreUpdate;
 
     void Start()
     {
@@ -34,9 +33,13 @@ public class EnemyController : MonoBehaviour
         if(hitColl != null && hitColl.CompareTag("Ground")){
             Destroy(gameObject);
         }
+        if(hitColl != null && hitColl.CompareTag("Player")){
+            EventManager.TouchEnemy();
+        }
         transform.Translate(randomDirection * enemy.speed * Time.deltaTime);
     }
 
+    /////////
     private void CompareElements(ElementData data, Vector3 tform)
     {
         if(tform != transform.position) return; //check the true arrow-enemy match
@@ -44,7 +47,7 @@ public class EnemyController : MonoBehaviour
         if(data.type == enemy.element.type){
             Instantiate(destroyEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
-            OnScoreUpdate?.Invoke();
+            EventManager.ScoreUpdate();
         }
         else EnemyScale();
     }
@@ -54,6 +57,7 @@ public class EnemyController : MonoBehaviour
         transform.localScale *= scaleMultiplier;
         enemyRadius *= scaleMultiplier;
     }
+    /////////
 
     private void OnDestroy(){
         EventManager.MatchElementEvent -= CompareElements;
