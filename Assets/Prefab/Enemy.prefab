@@ -116,9 +116,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allElements: {fileID: 11400000, guid: 04c9adfb17ba32a4c9fee1000198dce1, type: 2}
   enemySpeed: 3
-  scaleMultiplier: 1.1
+  scaleMultiplier: 1.2
   hitGroundLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 576
   enemyRadius: 0.5
   destroyEffect: {fileID: 4937240743920572447, guid: 1ff5077dc4a26cd48af6d65b85220499, type: 3}

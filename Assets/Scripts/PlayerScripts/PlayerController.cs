@@ -16,7 +16,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     
     void Start(){
-        rb = GetComponent<Rigidbody2D>(); 
+        rb = GetComponent<Rigidbody2D>();
+        EventManager.OnTouchEnemy += TouchEnemy;
     }
 
     void FixedUpdate(){
@@ -36,11 +37,20 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded(){
         return Physics2D.OverlapCircle(transform.position, groundCircleRadius, groundLayer);
     }
+    
+    private void TouchEnemy(){
+        Destroy(gameObject);
+        UIManager.instantiate.GameOver();
+    }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, groundCircleRadius);
+    }
+    
+    void OnDisable(){
+        EventManager.OnTouchEnemy -= TouchEnemy;
     }
 }
 
